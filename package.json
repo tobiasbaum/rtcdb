@@ -1,0 +1,19 @@
+{
+  "name": "rtcdb",
+  "version": "1.0.0",
+  "author": "Tobias Baum (http://tobias-baum.de)",
+  "license": "GPL-3.0-only",
+  "description": "Distributed peer-to-peer database based on WebRTC and browser local storage",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "peerjs": "^1.3.1"
+  },
+  "devDependencies": {
+    "@types/jasmine": "~3.6.0",
+    "jasmine-core": "~3.6.0"
+  }
+}
