@@ -17,6 +17,8 @@
     along with RTCDB.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import * as Peer from "../node_modules/peerjs/index";
+
 class Database {
 
   private times: any;
@@ -88,7 +90,7 @@ class Database {
 
 export class RTCDB {
   private systemName: string;
-  private peer: any;
+  private peer: Peer;
   private ownPeerId: string;
   private time: number;
   private otherNames: string[];
@@ -98,7 +100,7 @@ export class RTCDB {
   private databases: any;
   private storage: Storage;
 
-  constructor(systemName: string, peer: any, ownPeerId: string, storage: Storage, clean: boolean) {
+  constructor(systemName: string, peer: Peer, ownPeerId: string, storage: Storage, clean: boolean) {
     this.systemName = systemName;
     this.peer = peer;
     this.storage = storage;
@@ -178,7 +180,7 @@ export class RTCDB {
     }
   }
 
-  private addNode(conn: any) {
+  private addNode(conn: Peer.DataConnection) {
     if (this.others.indexOf(conn) >= 0) {
       return;
     }
@@ -188,7 +190,7 @@ export class RTCDB {
     this.storage.setItem(this.systemName + '.meta.knownPeerIds', JSON.stringify(this.otherNames));
 
     conn.on('data', (d: any) => this.handleData(d));
-    conn.on('open', (d: any) => {
+    conn.on('open', () => {
       this.markConnectionOpeningEnded(conn.peer);
       this.dumpDatabasesTo(conn);
     });
