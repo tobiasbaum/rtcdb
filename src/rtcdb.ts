@@ -17,7 +17,7 @@
     along with RTCDB.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import * as Peer from "../node_modules/peerjs/index";
+import * as Peer from "node_modules/peerjs/index";
 
 class Database {
 
