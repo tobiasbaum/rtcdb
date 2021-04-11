@@ -1,6 +1,6 @@
 {
   "name": "rtcdb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Tobias Baum (http://tobias-baum.de)",
   "license": "GPL-3.0-only",
   "description": "Distributed peer-to-peer database based on WebRTC and browser local storage",
